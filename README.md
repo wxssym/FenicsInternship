@@ -6,7 +6,10 @@ The internship span from the March 4th to June 30th, 2023 and supervied by David
 > **The repository is split in multiple folders such as :**
 > 
 > **FenicsATL :** My Fenics data nalysis library written in the internship, a dedicated repository can be found here : https://github.com/wxssym/FenicsATL 
+> 
 > **FenicsATLdocs :** Library documentation made and built using mkdocs, the deployment website can be found here : https://wxssym.github.io/FenicsATLdoc/
+> 
 > **JavaScript :** Folder with the javascript callbacks and event handler for bokeh interactive plotting integration within the FenicsATL library.
+> 
 > **Notebooks :** A set of different notebook for various analysis of FenicsData, and examples for FenicsATL library documentation.
 
