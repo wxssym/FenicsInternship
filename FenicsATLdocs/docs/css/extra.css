@@ -1,0 +1,50 @@
+p {
+    margin-bottom: 7px;
+}
+
+H2 {
+    color: #2980b9;
+    font-size: 200%;
+    margin-top: 24px;
+}
+
+H3 {
+    color : #297fb9c7;
+}
+
+H4 {
+    margin-bottom: 8px !important;
+}
+
+H6 {
+    margin-bottom: 8px !important;
+}
+
+H1 {
+    font-size: 240%;
+    color: #2980b9;
+    margin-bottom: 2px;
+}
+
+blockquote {
+    margin-bottom : 7px;
+}
+
+
+.wy-nav-content {
+    max-width : 100%;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #2980b9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #345367;
+  }
