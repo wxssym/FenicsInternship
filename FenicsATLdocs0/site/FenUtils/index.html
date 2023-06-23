@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FenUtils - FenicsATL documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FenUtils";
+        var mkdocs_page_input_path = "FenUtils.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/FENICS_white_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../userguide/">User guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../VisualCodeAtLPC/">VS code @LPC</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenStruct/">FenStruct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenLoad/">FenLoad</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenGraphs/">FenGraphs</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">FenUtils</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#normalization">Normalization</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilsnormalizer">FenUtils.Normalizer</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#duplicate-smoother">Duplicate smoother</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilsuniquevals">FenUtils.uniqueVals</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sigma-filter">Sigma filter</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilsdropoutsigma">FenUtils.dropOutSigma</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#folder-checker">Folder checker</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilscheckfolderat">FenUtils.checkFolderAt</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cumulative-burn-time">Cumulative burn-time</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilsburningtimecumulativecalc">FenUtils.burningTimeCumulativeCalc</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh-io">SSH io</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilsfensshtunnel">FenUtils.FenSSHtunnel</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mysql-io">MySQL io</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilscredentialssetup">FenUtils.credentialsSetup</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-bar">Loading bar</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenutilsloadingbar">FenUtils.loadingBar</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">FenicsATL documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>FenUtils</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fenutils-module">FenUtils module<a class="headerlink" href="#fenutils-module" title="Permanent link"></a></h1>
+<p>FenUtils is a module that regroups all utilitary functions from loading bars to credential and io with the MySQL database.</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link"></a></h2>
+<h3 id="normalization">Normalization<a class="headerlink" href="#normalization" title="Permanent link"></a></h3>
+<h4 id="fenutilsnormalizer">FenUtils.Normalizer<a class="headerlink" href="#fenutilsnormalizer" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.Normalizer(<i>To_normalize</i>)</strong></p>
+<p>Function that takes a pandas.DataFrame and returns the same pandas.DataFrame but normalized.</p>
+<blockquote>
+<p><strong>Parameters :</strong></p>
+<blockquote>
+<p><strong><em>To_normalize</em></strong> (pandas.dataframe) :</p>
+<blockquote>
+<p>DataFrame to normalize.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p>A normalized pandas.DataFrame</p>
+</blockquote>
+</blockquote>
+<h3 id="duplicate-smoother">Duplicate smoother<a class="headerlink" href="#duplicate-smoother" title="Permanent link"></a></h3>
+<h4 id="fenutilsuniquevals">FenUtils.uniqueVals<a class="headerlink" href="#fenutilsuniquevals" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.uniqueVals(<i>X,Y</i>)</strong></p>
+<p>Function that takes two arrays and mean duplicate Y values in each X.</p>
+<blockquote>
+<p><strong>Parameters :</strong></p>
+<blockquote>
+<p><strong><em>X</em></strong> (list) :</p>
+<blockquote>
+<p>X axis array.</p>
+</blockquote>
+<p><strong><em>Y</em></strong> (list) :</p>
+<blockquote>
+<p>Y axis array.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong>X_unique</strong> (list) :</p>
+<blockquote>
+<p>A list of unique values of X.</p>
+</blockquote>
+<p><strong>Y_unique</strong> (list) :</p>
+<blockquote>
+<p>A list of unique values of Y for each X.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="sigma-filter">Sigma filter<a class="headerlink" href="#sigma-filter" title="Permanent link"></a></h3>
+<h4 id="fenutilsdropoutsigma">FenUtils.dropOutSigma<a class="headerlink" href="#fenutilsdropoutsigma" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.dropOutSigma(<i>data,testTable,sigma,filter_id=False,return_index=True,columns=False</i>)</strong></p>
+<p>Function that calculate the sigma of each column and filter rows of values that are outside the <script type="math/tex"> Mean - N \times \sigma <values< Mean + N \times \sigma </script> range for each FENICS board alone. returns at choise an index list of rows that are within the range, or a boolean mask.</p>
+<p>Can be used for other than FENICS boards application as filter_id can be replace by labels and for each label a sigma filtering is done.</p>
+<blockquote>
+<p><strong>Parameters :</strong></p>
+<blockquote>
+<p><strong>data</strong> (pandas.dataframe) :</p>
+<blockquote>
+<p>FenDataFrame with Board infos and indexes.</p>
+</blockquote>
+<p><strong>testTable</strong> (pandas.dataframe) :</p>
+<blockquote>
+<p>testTable with values to filter.</p>
+</blockquote>
+<p><strong>sigma</strong> (integer) :</p>
+<blockquote>
+<p>The N values of sigma.</p>
+</blockquote>
+<p><strong>filter_id</strong> (list, optional) <em>default</em>=False :</p>
+<blockquote>
+<p>List of ids for specific labels/FENICS boards filtering.</p>
+</blockquote>
+<p><strong>return_index</strong> (bool, optional) <em>default</em>=True :</p>
+<blockquote>
+<p>True : return an index array.</p>
+<p>False : return boolean mask of filtred rows of data.</p>
+</blockquote>
+<p><strong>columns</strong> (bool, optional) <em>default</em>=False :</p>
+<blockquote>
+<p>List of specific columns to filter.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p>if return_index is True, it returns a list of pandas DataFrame indexes. Else it returns a boolean mask.</p>
+</blockquote>
+</blockquote>
+<h3 id="folder-checker">Folder checker<a class="headerlink" href="#folder-checker" title="Permanent link"></a></h3>
+<h4 id="fenutilscheckfolderat">FenUtils.checkFolderAt<a class="headerlink" href="#fenutilscheckfolderat" title="Permanent link"></a></h4>
+<p>Function that checks a folder location, if it exists it does nothing, if it do not exist it creates it.</p>
+<blockquote>
+<p><strong>Parameters :</strong></p>
+<blockquote>
+<p><strong>path</strong> (string) :</p>
+<blockquote>
+<p>Path to the directory to check.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="cumulative-burn-time">Cumulative burn-time<a class="headerlink" href="#cumulative-burn-time" title="Permanent link"></a></h3>
+<h4 id="fenutilsburningtimecumulativecalc">FenUtils.burningTimeCumulativeCalc<a class="headerlink" href="#fenutilsburningtimecumulativecalc" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.burningTimeCumulativeCalc(<i>burnsTable,id,burnings</i>)</strong></p>
+<p>Function that returns the cumulative time of burning given a burncycle and board id.</p>
+<blockquote>
+<p><strong>Parameters :</strong></p>
+<blockquote>
+<p><strong>burnsTable</strong> (pandas.dataframe) :</p>
+<blockquote>
+<p>DataFrame containing all the FENICS1 burning hours.</p>
+</blockquote>
+<p><strong>id</strong> (string) :</p>
+<blockquote>
+<p>FENICS board id.</p>
+</blockquote>
+<p><strong>burnings</strong> (integer) :</p>
+<blockquote>
+<p>The burning cycle of the FENICS board.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong>CumulativeBurningTIme</strong> (integer) :</p>
+<blockquote>
+<p>The cumulative burning time at the given burncycle for FENICS board id.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="ssh-io">SSH io<a class="headerlink" href="#ssh-io" title="Permanent link"></a></h3>
+<h4 id="fenutilsfensshtunnel">FenUtils.FenSSHtunnel<a class="headerlink" href="#fenutilsfensshtunnel" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.FenSSHtunnel()</strong></p>
+<p>Function that handles the SSH connection to the CERN.</p>
+<p><mark>Important</mark> Change inside the code the ssh_username field with yours.</p>
+<p><mark>Important</mark> The tunnel using paramiko does not seem to be working, we suggest to use an external terminal with an open tunnel.</p>
+<blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong>ssh_client</strong> (SSH client object) :</p>
+<blockquote>
+<p>Paramiko ssh client object.</p>
+</blockquote>
+<p><strong>ssh_tunnel</strong> (ssh tunnel obbject) :</p>
+<blockquote>
+<p>Paramiko SSH tunnel object</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="mysql-io">MySQL io<a class="headerlink" href="#mysql-io" title="Permanent link"></a></h3>
+<h4 id="fenutilscredentialssetup">FenUtils.credentialsSetup<a class="headerlink" href="#fenutilscredentialssetup" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.credentialsSetup()</strong></p>
+<p>Function that handles MySQL database connection and io with python kermel using mysql.connector library.
+5 attempts to connect before aborting to avoid abuse, each attempt a password is required if the password is not the right one. </p>
+<h3 id="loading-bar">Loading bar<a class="headerlink" href="#loading-bar" title="Permanent link"></a></h3>
+<h4 id="fenutilsloadingbar">FenUtils.loadingBar<a class="headerlink" href="#fenutilsloadingbar" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenUtils.loadingBar()</strong></p>
+<p>A cosmetic terminal loading bar with custom succes message, and informations while loading.</p>
+<blockquote>
+<p><strong>Parameters</strong></p>
+<blockquote>
+<p><strong>current_iter</strong> (interger) :</p>
+<blockquote>
+<p>Current loop iteration.</p>
+</blockquote>
+<p><strong>num_iterations</strong> (integer) :</p>
+<blockquote>
+<p>Expected maximum of iterations..</p>
+</blockquote>
+<p><strong>prefix</strong> (string, optional), <em>default</em>='' :</p>
+<blockquote>
+<p>Prefix text before the loading bar, an fstring can be passed for interactive loading.</p>
+</blockquote>
+<p><strong>suffix</strong> (string, optional), <em>default</em>='' :</p>
+<blockquote>
+<p>Suffix text before the loading bar, an fstring can be passed for interactive loading.</p>
+</blockquote>
+</blockquote>
+<p><strong>Example</strong></p>
+</blockquote>
+<pre><code>    for progress,columns in enumerate(Fast.columns):
+        FATL.FenBurnEvol(FENICS,Fast,columns,filter_id_slow,separate = False,LR=True,sigma=2 , unique=True, fileFormat='jpeg'
+                            ,path ='/users/divers/atlas/sisaid/home2/test01/burnTimeEvolution_nsep_nlr/fast')
+        FATL.loadingBar(progress,len(Fast.columns),suffix=str(columns))
+
+    for progress,columns in enumerate(Slow.columns):
+        FATL.FenBurnEvol(FENICS,Slow,columns,filter_id_slow,separate = False,LR=True,sigma=2 , unique=True, fileFormat='jpeg'
+                            ,path ='/users/divers/atlas/sisaid/home2/test01/burnTimeEvolution_nsep_nlr/slow')
+        FATL.loadingBar(progress,len(Slow.columns),suffix=str(columns))
+</code></pre>
+<p><img src='../assets/loading_bar.png'></img></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../FenGraphs/" class="btn btn-neutral float-left" title="FenGraphs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../FenGraphs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.3.min.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

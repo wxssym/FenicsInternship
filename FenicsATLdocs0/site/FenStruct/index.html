@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FenStruct - FenicsATL documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FenStruct";
+        var mkdocs_page_input_path = "FenStruct.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/FENICS_white_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../userguide/">User guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../VisualCodeAtLPC/">VS code @LPC</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">FenStruct</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics1-data-explorer">FENICS1 data explorer</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenstructfen1_data_extractor">FenStruct.fen1_data_extractor</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics2-data-explorer">FENICS2 data explorer</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenstructfen2_data_extractor">FenStruct.fen2_data_extractor</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-data-parser">FENICS data parser</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenstructdata_parser">FenStruct.data_parser</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenLoad/">FenLoad</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenGraphs/">FenGraphs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenUtils/">FenUtils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">FenicsATL documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>FenStruct</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fenstruct-module">FenStruct module<a class="headerlink" href="#fenstruct-module" title="Permanent link"></a></h1>
+<p>FenStruct is a module that gather all functions that parse main FENICS tests folder data searching for <code>FastResults.json</code> and <code>SlowResults.json</code></p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link"></a></h2>
+<h3 id="fenics1-data-explorer">FENICS1 data explorer<a class="headerlink" href="#fenics1-data-explorer" title="Permanent link"></a></h3>
+<h4 id="fenstructfen1_data_extractor">FenStruct.fen1_data_extractor<a class="headerlink" href="#fenstructfen1_data_extractor" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenStruct.fen1_data_extractor(<i>mainDataDir, burnsTablePath</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenStruct.py#L21-L44">source</a></p>
+<p>Function that crawl a given directory for FENICS1 boards test data files with a given burntime table csv file. It returns them in a FenDataFrame.</p>
+<p><mark>Important</mark>
+It is highly recommended to use this function to gather FENICS1 data, then save it as a <code>json</code> file then use <a href="../FenLoad/#read-fenics-data"><code>FenLoad.FenicsData_read(path)</code></a> to read it back.</p>
+<p><mark>Important</mark>
+There is <strong>no updating function</strong> to update FENICS DataFrames with new tests, a new scan of all the files with this function is needed.</p>
+<blockquote>
+<p><strong>parameters :</strong></p>
+<blockquote>
+<p><strong><em>mainDataDir</em></strong> (string) :</p>
+<blockquote>
+<p>path to the main directory to crawl for FENICS data.</p>
+</blockquote>
+<p><strong><em>burnsTablePath</em></strong> (string) :</p>
+<blockquote>
+<p>path to a CSV file containing the burning hours of FENICS1 boards and their ids.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>Multilevel columns FenDataFrame.</p>
+</blockquote>
+</blockquote>
+<p><strong>Example :</strong></p>
+<blockquote>
+<pre><code> #Directories definition
+ mainDataDir = "/AtlasDisk/user/FENICS/"
+ burnTablePath = "/users/divers/atlas/sisaid/home2/data/burns.csv"
+
+ #FENICS1 data collection
+ FENICS = FATL.fen1_data_extractor(mainDataDir, burnTablePath)
+ FENICS.to_json('/AtlasDisk/home2/sisaid/data/FENICS_data.json')
+</code></pre>
+<p>resulting FenDataFrame :
+<table style="undefined;table-layout: fixed; width: 1277px"><colgroup><col style="width: 79.2px"><col style="width: 74.2px"><col style="width: 35.2px"><col style="width: 55.2px"><col style="width: 69.2px"><col style="width: 52.2px"><col style="width: 92.2px"><col style="width: 103.2px"><col style="width: 111.2px"><col style="width: 107.2px"><col style="width: 42.2px"><col style="width: 81.2px"><col style="width: 78.2px"><col style="width: 73.2px"><col style="width: 75.2px"><col style="width: 71.2px"><col style="width: 77.2px"></colgroup><thead><tr><th colspan="6">Board</th><th colspan="5">FastResult</th><th colspan="6">SlowResult</th></tr></thead><tbody><tr><td>name</td><td>version</td><td>id</td><td>code</td><td>burnings</td><td>...</td><td>NoiseLG</td><td>NoiseLGIG1</td><td>NoiseLGIG2</td><td>NoiseLGIG6</td><td>...</td><td>Gain0</td><td>Gain1</td><td>Gain2</td><td>Gain3</td><td>Gain4</td><td>Gain5</td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="fenics2-data-explorer">FENICS2 data explorer<a class="headerlink" href="#fenics2-data-explorer" title="Permanent link"></a></h3>
+<h4 id="fenstructfen2_data_extractor">FenStruct.fen2_data_extractor<a class="headerlink" href="#fenstructfen2_data_extractor" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenStruct.fen2_data_extractor(<i>mainDataDir</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenStruct.py#L47-L77">source</a></p>
+<p>Function that crawl a given directory for FENICS2 boards test data. It requires an internet connexion to <strong>CERN</strong> cloud with a tunnel, and database credential to gather burning times and failure status from the <strong>mySQL</strong> FENICS2 database.
+The credentials are saved in the OS environnement for the session.</p>
+<p>It returns the data as FenDataFrame.</p>
+<p><mark>Important</mark>
+We recommend using this function to gather FENICS1 data, then save it as a <code>json</code> file then use <a href="../FenLoad/#read-fenics-data"><code>FenLoad.FenicsData_read(path)</code></a> to read it back.</p>
+<p><mark>Important</mark>
+There is <strong>no updating function</strong> to update FENICS DataFrames with new tests, a new scan of all the files with this function is needed.</p>
+<p><mark>Important</mark>
+Be sure that you are connected to the <strong>CERN</strong> servers with a tunnel on an external terminal. <code>paramiko</code> seem to connect with SSH, but cannot make a tunnel, this block the automatisation of the process.</p>
+<blockquote>
+<p><strong>parameters :</strong></p>
+<blockquote>
+<p><strong><em>mainDataDir</em></strong> (string) :</p>
+<blockquote>
+<p>path to the main directory to crawl for FENICS data.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>Multilevel columns FenDataFrame.</p>
+</blockquote>
+</blockquote>
+<p><strong>Example :</strong></p>
+<blockquote>
+<pre><code> #Directories definition
+ mainDataDir = "/AtlasDisk/user/tilefen/FENICS2/"
+
+ #FENICS1 data collection
+ FENICS2 = FATL.fen2_data_extractor(mainDataDir)
+ FENICS2.to_json('/AtlasDisk/home2/sisaid/data/FENICS2_data.json')
+</code></pre>
+<p>resulting FenDataFrame :
+<table style="undefined;table-layout: fixed; width: 1277px"><colgroup><col style="width: 79.2px"><col style="width: 74.2px"><col style="width: 35.2px"><col style="width: 55.2px"><col style="width: 69.2px"><col style="width: 52.2px"><col style="width: 92.2px"><col style="width: 103.2px"><col style="width: 111.2px"><col style="width: 107.2px"><col style="width: 42.2px"><col style="width: 81.2px"><col style="width: 78.2px"><col style="width: 73.2px"><col style="width: 75.2px"><col style="width: 71.2px"><col style="width: 77.2px"></colgroup><thead><tr><th colspan="6">Board</th><th colspan="5">FastResult</th><th colspan="6">SlowResult</th></tr></thead><tbody><tr><td>name</td><td>version</td><td>id</td><td>code</td><td>burnings</td><td>...</td><td>NoiseLG</td><td>NoiseLGIG1</td><td>NoiseLGIG2</td><td>NoiseLGIG6</td><td>...</td><td>Gain0</td><td>Gain1</td><td>Gain2</td><td>Gain3</td><td>Gain4</td><td>Gain5</td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="fenics-data-parser">FENICS data parser<a class="headerlink" href="#fenics-data-parser" title="Permanent link"></a></h3>
+<h4 id="fenstructdata_parser">FenStruct.data_parser<a class="headerlink" href="#fenstructdata_parser" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenStruct.data_parser(<i>mainDataDir,path,fen_ver,burnsTable=None,mySQL=None</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenStruct.py#L83-L237">source</a></p>
+<p>A multipurpose parsing function for both FENICS1 and FENICS2 data folders.</p>
+<blockquote>
+<p><strong>parameters :</strong></p>
+<blockquote>
+<p><strong><em>mainDataDir</em></strong> (string) :</p>
+<blockquote>
+<p>path to the main directory to crawl for FENICS data.</p>
+</blockquote>
+<p><strong><em>path</em></strong> (string) :</p>
+<blockquote>
+<p>relative path of the parsed folder to the main directory.</p>
+</blockquote>
+<p><strong><em>fen_vers</em></strong> (integer) :</p>
+<blockquote>
+<p>version number of the parsed FENICS (1 or 2).</p>
+</blockquote>
+<p><strong><em>burnsTable</em></strong> (pandas.DataFrame,optional) , <em>default</em>=None :</p>
+<blockquote>
+<p>(Only for FENICS1) burnTable dataframe object from the csv file.</p>
+</blockquote>
+<p><strong><em>mySQL</em></strong> (mysql.cursor,optional) , <em>default</em>=None :</p>
+<blockquote>
+<p>(Only for FENICS2) mySQL cursor of mysql.connector after connection to the mysql database.
+</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong><em>parsedFolderData</em></strong> (dictionary) :</p>
+<blockquote>
+<p>dictionary of the data parsed inside the folder.</p>
+</blockquote>
+</blockquote>
+<p><strong>Example :</strong></p>
+<blockquote>
+<pre><code> for i,FENICS_id_prefix in enumerate(FENICS_to_analyse) :
+     loadingBar(i,len(FENICS_to_analyse),prefix=f"parsing {FENICS_id_prefix} data...")
+     filtredFolder = [string for string in os.listdir(mainDataDir) if string.startswith(FENICS_id_prefix) or string == FENICS_id_prefix]
+         for subfolder in filtredFolder :
+             for subsubfolder in os.listdir(mainDataDir+subfolder) :
+                 for fileName in os.listdir(mainDataDir+subfolder+"/"+subsubfolder) :
+                     if fileName.endswith("SlowResult.json") and subsubfolder.startswith("20"):
+                     path = subfolder + "/" +subsubfolder + "/"
+                     FENICS = FENICS.append(data_parser(mainDataDir,path,1,burnsTable),ignore_index=True)
+     print(f"Parsing done with success.", end='\r')    
+     return FENICS
+</code></pre>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../VisualCodeAtLPC/" class="btn btn-neutral float-left" title="VS code @LPC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../FenLoad/" class="btn btn-neutral float-right" title="FenLoad">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../VisualCodeAtLPC/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../FenLoad/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.3.min.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

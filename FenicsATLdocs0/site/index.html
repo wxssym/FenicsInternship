@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>FenicsATL documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="assets/FENICS_white_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="getstarted/">Get started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="userguide/">User guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="VisualCodeAtLPC/">VS code @LPC</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="FenStruct/">FenStruct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="FenLoad/">FenLoad</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="FenGraphs/">FenGraphs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="FenUtils/">FenUtils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">FenicsATL documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="welcome-to-fenicsatl-documentation">Welcome to FenicsATL documentation<a class="headerlink" href="#welcome-to-fenicsatl-documentation" title="Permanent link"></a></h1>
+<p>a FENICS data analysis Python library (Python 3.6+) with a multipurpose graphical tools with filtering. Part of the <strong>"Analysis of FENICS ageing data, for ATLAS upgrade"</strong>, at the Laboratoire de Physique de Clermont <strong>LPC</strong>.</p>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link"></a></h2>
+<p>FenicsATL functions are separated into different modules that achieve :  </p>
+<ul>
+<li><a href="FenStruct#FenStruct-module"><code>FenicsATL.FenStruct</code></a> - module with functions that parse/read/save the FENICS boards data in a pandas dataframe, and inside a one single json file.</li>
+<li><a href="FenLoad#FenLoad-module"><code>FenicsATL.FenLoad</code></a> -  module with  functions that load filter the saved FENICS data, and separates Slow/Fast dataframes.</li>
+<li><a href="FenGraphs#FenGraphs-module"><code>FenicsATL.FenGraphs</code></a> -  module with functions that Plot using <code>Matplotlib</code> and <code>Bokeh</code> the different features of FENICS boards.</li>
+<li><a href="FenUtils#FenUtils-module"><code>FenicsATL.FenUtils</code></a> -  module with utility functions that handles io, <code>SSH</code> connections, <code>MySQL</code> database connections.</li>
+</ul>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link"></a></h2>
+<p>FenicsATL package need these Python modules installed to properly work</p>
+<p><strong> scientific  python libraries</strong></p>
+<ul>
+<li><a href="https://numpy.org/install/"><code>numpy</code></a> scientific computing in Python.</li>
+<li><a href="https://pandas.pydata.org/"><code>pandas</code></a> easy-to-use data structures and data analysis tools for the Python programming language.</li>
+<li><a href="https://scipy.org/install/"><code>scipy</code></a> is an open-source software for mathematics, science, and engineering..</li>
+<li><a href="https://scikit-learn.org/stable/install.html"><code>scikit learn</code></a> is an open source machine learning library that supports supervised and unsupervised learning.</li>
+</ul>
+<p><strong> graphical python libraries</strong></p>
+<ul>
+<li><a href="https://docs.bokeh.org/en/latest/docs/first_steps.html#first-steps"><code>Bokeh</code></a> Bokeh is a Python library for creating interactive visualizations for modern web browsers..</li>
+<li><a href="https://matplotlib.org/stable/index.html"><code>pyplot.matplotlib</code></a>  is a state-based interface to matplotlib. It provides an implicit, MATLAB-like, way of plotting.</li>
+</ul>
+<p><strong> io/socket python libraries</strong></p>
+<ul>
+<li><a href="https://www.paramiko.org/installing.html"><code>paramiko</code></a> is a pure-Python 1 (3.6+) implementation of the SSHv2 protocol.</li>
+<li><a href="https://dev.mysql.com/doc/connector-python/en/"><code>mysql.connector</code></a> a self-contained Python driver for communicating with MySQL servers.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="getstarted/" class="btn btn-neutral float-right" title="Get started">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="getstarted/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.3.min.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.3.1
+Build Date UTC : 2023-06-19 08:27:26.148078+00:00
+-->

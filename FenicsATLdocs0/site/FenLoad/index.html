@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FenLoad - FenicsATL documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FenLoad";
+        var mkdocs_page_input_path = "FenLoad.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/FENICS_white_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../userguide/">User guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../VisualCodeAtLPC/">VS code @LPC</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenStruct/">FenStruct</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">FenLoad</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#read-fenics-data">Read FENICS data</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenloadfenicsdata_read">FenLoad.FenicsData_read</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filter-fenics-data-by-id">Filter FENICS data by ID</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenloadfenicsvers_filter">FenLoad.FenicsVers_filter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get-fenics-test-frame-data">Get FENICS test frame data</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenloadfenicstesttable">FenLoad.FenicsTestTable</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenGraphs/">FenGraphs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenUtils/">FenUtils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">FenicsATL documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>FenLoad</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fenload-module">FenLoad module<a class="headerlink" href="#fenload-module" title="Permanent link"></a></h1>
+<p>FenLoad is a module that regroup functions that load saved <code>.json</code> files that are generated using <a href="../FenStruct#FenStruct-module"><code>FenicsATL.FenStruct</code></a>, and fuctions that split Fast/SLow results in testTables formated in multiple columns</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link"></a></h2>
+<h3 id="read-fenics-data">Read FENICS data<a class="headerlink" href="#read-fenics-data" title="Permanent link"></a></h3>
+<h4 id="fenloadfenicsdata_read">FenLoad.FenicsData_read<a class="headerlink" href="#fenloadfenicsdata_read" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenLoad.FenicsData_read(<i>path</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenLoad.py#L7-L15">source</a></p>
+<p> Read the saved json file of FENICS data, and keeps it formated in multicolumns format using tuples. Compatible with FENICS1 and FENICS2 versions</p>
+
+<blockquote>
+<p><strong>parameters:</strong></p>
+<blockquote>
+<p><strong><em>path</em></strong> (string) :</p>
+<blockquote>
+<p>Path to the FENICS json file generated by FenicsATL.FenStruct.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>Multilevel columns dataframe of FENICS boards.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Example :</strong></p>
+<blockquote>
+<pre><code>   FENICS = FATL.FenicsData_read('/AtlasDisk/home2/sisaid/data/FENICS_data.json')
+</code></pre>
+<p>Resulting DataFrame
+<table style="undefined;table-layout: fixed; width: 1277px"><colgroup><col style="width: 79.2px"><col style="width: 74.2px"><col style="width: 35.2px"><col style="width: 55.2px"><col style="width: 69.2px"><col style="width: 52.2px"><col style="width: 92.2px"><col style="width: 103.2px"><col style="width: 111.2px"><col style="width: 107.2px"><col style="width: 42.2px"><col style="width: 81.2px"><col style="width: 78.2px"><col style="width: 73.2px"><col style="width: 75.2px"><col style="width: 71.2px"><col style="width: 77.2px"></colgroup><thead><tr><th colspan="6">Board</th><th colspan="5">FastResult</th><th colspan="6">SlowResult</th></tr></thead><tbody><tr><td>name</td><td>version</td><td>id</td><td>code</td><td>burnings</td><td>...</td><td>NoiseLG</td><td>NoiseLGIG1</td><td>NoiseLGIG2</td><td>NoiseLGIG6</td><td>...</td><td>Gain0</td><td>Gain1</td><td>Gain2</td><td>Gain3</td><td>Gain4</td><td>Gain5</td></tr></tbody></table></p>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="filter-fenics-data-by-id">Filter FENICS data by ID<a class="headerlink" href="#filter-fenics-data-by-id" title="Permanent link"></a></h3>
+<h4 id="fenloadfenicsvers_filter">FenLoad.FenicsVers_filter<a class="headerlink" href="#fenloadfenicsvers_filter" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenLoad.FenicsVers_filter(<i>data,*args,index = True</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenLoad.py#L19-L51">source</a></p>
+<p> Filter the dataframe with a given list of FENICS IDs to filter</p>
+
+<blockquote>
+<p><strong>parameters :</strong></p>
+<blockquote>
+<p><strong><em>data</em></strong> (pandas.DataFrame) : </p>
+<blockquote>
+<p>pandas.dataframe of FENICS data with Board main column.</p>
+</blockquote>
+<p><strong><em>*args</em></strong> (array) :</p>
+<blockquote>
+<p>array/list of IDs to filter.</p>
+</blockquote>
+<p><strong><em>index</em></strong> (bool,optional) , <em>default</em>=True :</p>
+<blockquote>
+<p>Keep the original dataframe indexing.
+</p>
+</blockquote>
+</blockquote>
+<p><strong>returns :</strong></p>
+<blockquote>
+<p><strong><em>DataFrame</em></strong> (pandas.DataFrame):</p>
+<blockquote>
+<p>Filtred multilevel columns dataframe keeping original index if index = default.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Examples :</strong></p>
+<blockquote>
+<p>Two line :</p>
+<pre><code>   filter_id_slow = [15,14,13,12,10,9,8,6,5,4]
+   FENICS = FATL.FenicsData_read('/AtlasDisk/home2/sisaid/data/FENICS_data.json')
+   FENICS = FATL.FenicsVers_filter(FENICS,filter_id_slow)
+</code></pre>
+<p>One line :</p>
+<pre><code>   FENICS = FATL.FenicsVers_filter(FATL.FenicsData_read('/AtlasDisk/home2/sisaid/data/FENICS_data.json'),filter_id_slow)
+</code></pre>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="get-fenics-test-frame-data">Get FENICS test frame data<a class="headerlink" href="#get-fenics-test-frame-data" title="Permanent link"></a></h3>
+<h4 id="fenloadfenicstesttable">FenLoad.FenicsTestTable<a class="headerlink" href="#fenloadfenicstesttable" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenLoad.FenicsTestTable(<i>data,mode,resetIndex = False</i>):</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenLoad.py#L55-L87">source</a></p>
+<p> Separate the testing table from the FENICS parent dataframe, and set it to a 2 level multicolumn format for FENICS Fast channel, and a 3 level multicolumn for FENICS Slow channel.</p>
+
+<blockquote>
+<p><strong>parameters :</strong></p>
+<blockquote>
+<p><strong><em>data</em></strong> (pandas.dataframe) :</p>
+<blockquote>
+<p>dataframe of FENICS data.</p>
+</blockquote>
+<p><strong><em>mode</em></strong> (string) :</p>
+<blockquote>
+<p>test channel 'Fast' or 'Slow'.</p>
+</blockquote>
+<p><strong><em>resetIndex</em></strong> (bool,optional), <em>default</em>=False :</p>
+<blockquote>
+<p>Keep the original dataframe indexing.</p>
+</blockquote>
+</blockquote>
+<p><strong>Returns :</strong></p>
+<blockquote>
+<p><strong><em>testTable</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>Multilevel columns testTable.</p>
+</blockquote>
+</blockquote>
+<p><strong>Example :</strong> </p>
+<blockquote>
+<pre><code>   FENICS = FATL.FenicsData_read('/AtlasDisk/home2/sisaid/data/FENICS_data.json')
+   Fast = FATL.FenicsTestTable(FENICS,'fast')
+   Slow = FATL.FenicsTestTable(FENICS,'slow')
+</code></pre>
+<p>Fast channel:
+<table style="undefined;table-layout: fixed; width: 1259px"><colgroup><col style="width: 91.2px"><col style="width: 101.2px"><col style="width: 88.2px"><col style="width: 123.2px"><col style="width: 103.2px"><col style="width: 141.2px"><col style="width: 148.2px"><col style="width: 50.2px"><col style="width: 90.2px"><col style="width: 108.2px"><col style="width: 76.2px"><col style="width: 138.2px"></colgroup><thead><tr><th colspan="2">Gain</th><th colspan="5">LinearHGcor</th><th>...</th><th colspan="4">NoiseLGIG6</th></tr></thead><tbody><tr><td>GainRatioLC</td><td>GainRatioSC</td><td>SlopeAmp</td><td>SlopeInteg</td><td>LowGoodLin</td><td>LowGoodNoisePed</td><td>LowGoodNoiseInteg</td><td>...</td><td>Mu</td><td>Sigma</td><td>Mean</td><td>StdDev</td></tr></tbody></table>
+Slow channel:</p>
+<p><table style="undefined;table-layout: fixed; width: 1618px"><colgroup><col style="width: 87.2px"><col style="width: 85.2px"><col style="width: 89.2px"><col style="width: 50.2px"><col style="width: 53.2px"><col style="width: 80.2px"><col style="width: 83.2px"><col style="width: 76.2px"><col style="width: 75.2px"><col style="width: 47.2px"><col style="width: 122.2px"><col style="width: 133.2px"><col style="width: 125.2px"><col style="width: 138.2px"><col style="width: 55.2px"><col style="width: 63.2px"><col style="width: 45.2px"><col style="width: 68.2px"><col style="width: 65.2px"><col style="width: 75.2px"></colgroup><thead><tr><th colspan="9">Gain0</th><th>...</th><th colspan="10">Gain5</th></tr></thead><tbody><tr><td colspan="4">Linearity</td><td>...</td><td colspan="4">NoisePhys</td><td>...</td><td colspan="5">Linearity</td><td>...</td><td>NoisePhys</td><td></td><td></td><td></td></tr><tr><td>SlopeLin</td><td>ConstLin</td><td>DACforPed</td><td>...</td><td>...</td><td>Mu</td><td>Sigma</td><td>Mean</td><td>StdDev</td><td>...</td><td>SlopeLin</td><td>ConstLin</td><td>DacforPed</td><td>LowGoodNoise</td><td>...</td><td>...</td><td>Mu</td><td>Sigma</td><td>Mean</td><td>StdDev</td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../FenStruct/" class="btn btn-neutral float-left" title="FenStruct"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../FenGraphs/" class="btn btn-neutral float-right" title="FenGraphs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../FenStruct/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../FenGraphs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.3.min.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>VS code @LPC - FenicsATL documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "VS code @LPC";
+        var mkdocs_page_input_path = "VisualCodeAtLPC.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/FENICS_white_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../userguide/">User guide</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">VS code @LPC</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vs-code-extensions">VS CODE Extensions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pythonjupyter-extensions">Python/Jupyter extensions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#python-evironnement">Python evironnement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#jupyter-extension">Jupyter extension</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh-remote-extensions">SSH remote extensions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#githubgitlab-extensions">Github/Gitlab extensions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssh-remote">SSH remote</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#prerequisite">Prerequisite</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-a-remote-connection">Adding a remote connection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#connection-to-a-remote">Connection to a remote</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenStruct/">FenStruct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenLoad/">FenLoad</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenGraphs/">FenGraphs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenUtils/">FenUtils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">FenicsATL documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>VS code @LPC</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="visual-studio-code-and-ssh-lpc">Visual Studio Code and SSH @LPC<a class="headerlink" href="#visual-studio-code-and-ssh-lpc" title="Permanent link"></a></h1>
+<h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link"></a></h2>
+<p><strong>VS code</strong> is Microsoft's <a href="https://github.com/microsoft/vscode">open source</a> multipurpous IDE, can support all language and all platforms, with multiple extensions made by the community that improve the quality of life of VS code users and spreading its range of applications.</p>
+<p><img src='../assets/images/visual_code.png'></img></p>
+<p><strong>Typical VS code home page, when first run with less extensions on the side bar.</strong></p>
+<p>VS code is capable of everything literaly, we can split the owrking space to N windows, each one with a file or a directory. We can open multiple terminals with different ssh connections, or processes. We can open websites with an embeded server, we can read PDF files, make schematics using drawio extension... the possibilities are illimited.</p>
+<h2 id="vs-code-extensions">VS CODE Extensions<a class="headerlink" href="#vs-code-extensions" title="Permanent link"></a></h2>
+<p>Python or any other environnement or additions made by the community can be found as an extension within the extensions marketplace button on the sidebar (all extensions are free) </p>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="pythonjupyter-extensions">Python/Jupyter extensions<a class="headerlink" href="#pythonjupyter-extensions" title="Permanent link"></a></h3>
+<h4 id="python-evironnement">Python evironnement<a class="headerlink" href="#python-evironnement" title="Permanent link"></a></h4>
+<p>To setup python on the environnement we have to install the Python extension chosing the Python version needed, VS code will detect if this version is already on the machine and will just link it self, if no python version is detected a fresh installation will be done.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Extension link</a></p>
+<p><img src='../assets/images/python.png'></img></p>
+<p>We can later disactivate, or switch between versions or update the distribution on the marketplace with the dedicated buttons.</p>
+<p>&nbsp;
+&nbsp;</p>
+<h4 id="jupyter-extension">Jupyter extension<a class="headerlink" href="#jupyter-extension" title="Permanent link"></a></h4>
+<p>Jupyter Notebook is a powerful and versatile web-based interactive computing environment that enables users to create and share documents containing live code, equations, visualizations, and explanatory text. It provides a convenient platform for data analysis, scientific research, and machine learning tasks.</p>
+<p><img src='../assets/images/jupyter.png'></img></p>
+<p>To setup Jupter Notebooks on the Visual Code, the extension is available : <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Extension link</a></p>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="ssh-remote-extensions">SSH remote extensions<a class="headerlink" href="#ssh-remote-extensions" title="Permanent link"></a></h3>
+<p>The Remote - SSH extension lets you use any remote machine with a SSH server as your development environment. This can greatly simplify development and troubleshooting in a wide variety of situations.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Extension link</a></p>
+<p><img src='../assets/images/remote.png'></img></p>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="githubgitlab-extensions">Github/Gitlab extensions<a class="headerlink" href="#githubgitlab-extensions" title="Permanent link"></a></h3>
+<p>Github extension is very important to keep your working branch up to date, and commit changes to the reposity. The extension automates multiple aspects of the git process by detecting changes and highlighting them, and help keep track of the changes done.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github">Extension link</a></p>
+<p><img src='../assets/images/github.png'></img></p>
+<p>&nbsp;
+&nbsp;</p>
+<h2 id="ssh-remote">SSH remote<a class="headerlink" href="#ssh-remote" title="Permanent link"></a></h2>
+<p>To connect into the LPC an SSH and a tunnel connection is needed, the different solutions availabale (Terminal/X2GO) each one have its own inconveniences. Terminal lack of visual gui and closing one terminal can close multiple runned tasks, and X2GO (for my applicaiton was too slow, with frame drops and alot of lag issues. The most important one is the impossibility to copy past across the machines even with the option activated.)</p>
+<p>A solution using <a href="../VisualCodeAtLPC/#ssh-remote-extensions">SSH remote extension</a> was found and the following tutorial explains how to use it.</p>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link"></a></h3>
+<p>One important prerequise is to have an SSH key and trusted by the LPC IT to connect to the proxy server <code>clrssh.in2p3.fr</code>. Or any proxy server if utilized for other servers than the ATL@LPC servers.</p>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="adding-a-remote-connection">Adding a remote connection<a class="headerlink" href="#adding-a-remote-connection" title="Permanent link"></a></h3>
+<p>After installing <a href="../VisualCodeAtLPC/#ssh-remote-extensions">SSH remote extension</a> a new icon on the side bar should appear, from there we can clic on the plus bottom to add a new SSH remote connection.</p>
+<p><center><img src='../assets/images/new remote 1.png'></img></center></p>
+<p>It will ask you about the SSH connection link in a small popup on the top. You can either put your real SSH conenction credentials or a temporary innexistant SSH connection credentials because we will change it eventually for ATL@LPC servers since it needs a proxy jump to configure the hosts. in this tutorial i introduced <code>test@test.com</code>.</p>
+<p><center><img src='../assets/images/new remote 2.png'></img></center></p>
+<p>and then it will ask for the .ssh directory where your ssh keys are located.</p>
+<p><center><img src='../assets/images/new remote 3.png'></img></center></p>
+<p>You can chose the correct path to the .ssh directory.</p>
+<p>After this we can access the config file of the ssh hosts using a right clic on the extension SSH dropdown menu,</p>
+<p><center><img src='../assets/images/new remote 4.png'></img></center></p>
+<p>We can here change the host config to be compatible with the proxy jump over <code>clrssh.in2p3.fr</code>.</p>
+<p>We can multiple Hosts, and multiple port forwarding to any port wanted depending on our applications (SSH remote can forward ports if needed).</p>
+<p><center><img src='../assets/images/new remote 5.png'></img></center></p>
+<p>Host should be formated like this : </p>
+<pre><code>    Host serverName
+        HostName serverName
+        LocalForward port localhost:port
+        ProxyJump usr@clrssh.in2p3.fr
+        User usr
+</code></pre>
+<p>Save the file to apply the changes.</p>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="connection-to-a-remote">Connection to a remote<a class="headerlink" href="#connection-to-a-remote" title="Permanent link"></a></h3>
+<p>Using the arrow to the Host we want to connect to, we can connect to it and pop ups will ask for ssh public key, and ATL@LPC user password (no password is saved, and will be asked on each connection)</p>
+<p><center><img src='../assets/images/new remote 6.png'></img></center></p>
+<p>SSH Key :
+<center><img src='../assets/images/new remote 7.png'></img></center></p>
+<p>ATL@LPC key :
+<center><img src='../assets/images/new remote 8.png'></img></center></p>
+<p>After connection we can verify the connection status on the bottom bar corner green status indicator. And we are asked to open a working place,</p>
+<p><center><img src='../assets/images/new remote 9.png'></img></center></p>
+<p>We can navigate the server folders to chose our working directory</p>
+<p><center><img src='../assets/images/new remote 10.png'></img></center></p>
+<p>Visual code will ask up again to introduce our credentials for security reasons, and voila, we can use our personal computer with the server's computation power.</p>
+<p><mark>Important</mark> : You'll have to install your usual extensions back/again on the server side after remote connection, the Visual Code isntance on the ATL@LPC is not a copy of your local ATL@LPC.</p>
+<p><center><img src='../assets/images/finale.png'></img></center></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../userguide/" class="btn btn-neutral float-left" title="User guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../FenStruct/" class="btn btn-neutral float-right" title="FenStruct">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../userguide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../FenStruct/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.3.min.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

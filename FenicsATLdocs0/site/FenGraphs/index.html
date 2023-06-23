@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FenGraphs - FenicsATL documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FenGraphs";
+        var mkdocs_page_input_path = "FenGraphs.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/FENICS_white_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../userguide/">User guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../VisualCodeAtLPC/">VS code @LPC</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenStruct/">FenStruct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenLoad/">FenLoad</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">FenGraphs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-features-histograms">Fenics features Histograms</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fengraphsfenhist">FenGraphs.FenHist()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-features-correlations">Fenics features Correlations</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fengraphsfencorr">FenGraphs.FenCorr()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-features-burn-evolution">Fenics features burn-evolution</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fengraphsfenburnevol">FenGraphs.FenBurnEvol()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-features-jitter">Fenics features jitter</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fengraphsfenspread">FenGraphs.FenSpread()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-interactive-plots-framework">Fenics interactive plots framework</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgrapher">FenBokehGrapher</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphercreate_plot">FenBokehGrapher.create_plot</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphercreate_hist">FenBokehGrapher.create_hist</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphercreate_slider">FenBokehGrapher.create_slider</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphercreate_checkboxes">FenBokehGrapher.create_checkboxes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphercreate_radiocheckbox">FenBokehGrapher.create_radiocheckbox</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgrapherselection_callback">FenBokehGrapher.selection_callback</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphercreate_combo_filter">FenBokehGrapher.create_combo_filter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgrapherfilters_tool">FenBokehGrapher.filters_tool</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgrapherplotter">FenBokehGrapher.plotter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehgraphersave_as_html">FenBokehGrapher.save_as_html</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fenics-t-sne-calcualtions">Fenics t-SNE calcualtions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#fenbokehtsne">FenBokehTSNE</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FenUtils/">FenUtils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">FenicsATL documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>FenGraphs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fengraphs-module">FenGraphs module<a class="headerlink" href="#fengraphs-module" title="Permanent link"></a></h1>
+<p>FenGraphs is a module that regroup functions that plot different plot types specific to the different FENICS boards using <code>matplotlib.pyplot</code> library and <code>Bokeh</code> interactive plotting library.</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link"></a></h2>
+<h3 id="fenics-features-histograms">Fenics features Histograms<a class="headerlink" href="#fenics-features-histograms" title="Permanent link"></a></h3>
+<h4 id="fengraphsfenhist">FenGraphs.FenHist()<a class="headerlink" href="#fengraphsfenhist" title="Permanent link"></a></h4>
+<p><em>func</em>  <strong>FenGraphs.FenHist(<i>FenDataFrame,testTable,columns,selectedBoards,show=True,**kwargs</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L27-L112">source</a></p>
+<p>Function that plot an <strong>histogram</strong> of the provided Fenics boards IDs, separatly or grouped.</p>
+<blockquote>
+<h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS dataframe with board informations.</p>
+</blockquote>
+<p><strong><em>testTable</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS Fast/Slow DataFrame with boards result values.</p>
+</blockquote>
+<p><strong><em>columns</em></strong> (tuple) :</p>
+<blockquote>
+<p>Tuple of columns that are being plotted <strong><em>(MainCol,SubCol)</em></strong> for Fast channel. <strong><em>(Gain,MainCol,SubCol)</em></strong> for Slow channel.</p>
+</blockquote>
+<p><strong><em>selectedBoards</em></strong> (list) :</p>
+<blockquote>
+<p>List of boards IDs to plot as histogram.</p>
+</blockquote>
+<p><strong><em>show</em></strong> (bool, optional) ,<strong><em>default</em></strong>=True :</p>
+<blockquote>
+<p>Show histograms in the cell output. By <strong><em>default</em></strong> it is <strong>true</strong>, but for any reasons someone needs to get plots saved without being showed, this can be turned off, a <strong><em>path</em></strong> to save the histogram needs to be provided. </p>
+</blockquote>
+</blockquote>
+<h6 id="other-parameters">Other parameters<a class="headerlink" href="#other-parameters" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>path</em></strong> (string, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>A save directory for the histogram if show is set to <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>separate</em></strong> (bool, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Plot the given FENICS boards separatly <strong>True</strong>, or grouped in one histogram <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>sigma</em></strong> (integer, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>within how many sigma deviation values are accepted. Data values within the <script type="math/tex">mean \pm n\sigma </script> are kept on the wanted column/DataFrame.</p>
+</blockquote>
+<p><strong><em>saveFormat</em></strong> (string, optional), <strong><em>default</em></strong>='jpeg' :</p>
+<blockquote>
+<p>change the output format of the saved histogram : <strong>JPEG, PDF, SVG, PNG</strong></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</p>
+<h3 id="fenics-features-correlations">Fenics features Correlations<a class="headerlink" href="#fenics-features-correlations" title="Permanent link"></a></h3>
+<h4 id="fengraphsfencorr">FenGraphs.FenCorr()<a class="headerlink" href="#fengraphsfencorr" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenGraphs.FenCorr(<i>FenDataFrame,testTable,col1,col2,selectedBoards,show=True,**kwargs</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L115-L233">source</a></p>
+<p>This function makes a correlation plot of two different FENICS features as a matplotlib.pyplot.plot(feature1,feature2) optimized for FENICS boards.</p>
+<blockquote>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS dataframe with board informations.</p>
+</blockquote>
+<p><strong><em>testTable</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS Fast/Slow DataFrame with boards result values.</p>
+</blockquote>
+<p><strong><em>col1,col2</em></strong> (tuples) :</p>
+<blockquote>
+<p>Tuples of plotted correlated features. <strong><em>(MainCol,SubCol)</em></strong> for Fast channel. <strong><em>(Gain,MainCol,SubCol)</em></strong> for Slow channel.</p>
+</blockquote>
+<p><strong><em>selectedBoards</em></strong> (list) :</p>
+<blockquote>
+<p>List of boards IDs to plot as histogram.</p>
+</blockquote>
+<p><strong><em>show</em></strong> (bool, optional) ,<strong><em>default</em></strong>=True :</p>
+<blockquote>
+<p>Show plot in the cell output. By <strong><em>default</em></strong> it is <strong>true</strong>, but for any reasons someone needs to get plots saved without being showed, this can be turned off, a <strong><em>path</em></strong> to save the plot needs to be provided. </p>
+</blockquote>
+</blockquote>
+<h6 id="other-parameters_1">Other parameters<a class="headerlink" href="#other-parameters_1" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>path</em></strong> (string, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>A save directory for the correlation plot if show is set to <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>separate</em></strong> (bool, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Plot the given FENICS boards separatly <strong>True</strong>, or grouped in one correlation plot <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>sigma</em></strong> (integer, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>within how many sigma deviation values are accepted. Data values within the <script type="math/tex">mean \pm n\sigma </script> are kept on the wanted column/DataFrame.</p>
+</blockquote>
+<p><strong>burns</strong> (bool,optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Use burntimes as a third axis with a color bar.</p>
+</blockquote>
+<p><strong>burns_filter</strong> (integer,optional), <strong>default</strong>=None :</p>
+<blockquote>
+<p>A burn-time value in burn-hours at when you want a filter.</p>
+</blockquote>
+<p><strong>LR</strong> (bool,optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Linear regression of the plotted data, One linear regression for one board plotted.</p>
+</blockquote>
+<p><strong><em>saveFormat</em></strong> (string, optional), <strong><em>default</em></strong>='jpeg' :</p>
+<blockquote>
+<p>change the output format of the saved correlation plot : <strong>JPEG, PDF, SVG, PNG</strong></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</p>
+<h3 id="fenics-features-burn-evolution">Fenics features burn-evolution<a class="headerlink" href="#fenics-features-burn-evolution" title="Permanent link"></a></h3>
+<h4 id="fengraphsfenburnevol">FenGraphs.FenBurnEvol()<a class="headerlink" href="#fengraphsfenburnevol" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenGraphs.FenBurnEvol(<i>FenDataFrame,testTable,columns,selectedBoards,show=True,**kwargs</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L236-L374">source</a></p>
+<p>This function makes an evolution plot of a selected feature with the corresponding burn-time as a matplotlib.pyplot.plot(burn-time,feature) optimized for FENICS boards.</p>
+<blockquote>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS dataframe with board informations.</p>
+</blockquote>
+<p><strong><em>testTable</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS Fast/Slow DataFrame with boards result values.</p>
+</blockquote>
+<p><strong><em>columns</em></strong> (tuples) :</p>
+<blockquote>
+<p>Feature to plot its evolution with burn-time. <strong><em>(MainCol,SubCol)</em></strong> for Fast channel. <strong><em>(Gain,MainCol,SubCol)</em></strong> for Slow channel.</p>
+</blockquote>
+<p><strong><em>selectedBoards</em></strong> (list) :</p>
+<blockquote>
+<p>List of boards IDs to plot as histogram.</p>
+</blockquote>
+<p><strong><em>show</em></strong> (bool, optional) ,<strong><em>default</em></strong>=True :</p>
+<blockquote>
+<p>Show plot in the cell output. By <strong><em>default</em></strong> it is <strong>true</strong>, but for any reasons someone needs to get plots saved without being showed, this can be turned off, a <strong><em>path</em></strong> to save the plot needs to be provided. </p>
+</blockquote>
+</blockquote>
+<h6 id="other-parameters_2">Other parameters<a class="headerlink" href="#other-parameters_2" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>path</em></strong> (string, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>A save directory for the plot if show is set to <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>separate</em></strong> (bool, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Plot the given FENICS boards separatly <strong>True</strong>, or grouped in one plot <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>sigma</em></strong> (bool, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Keep one point per burn-hour, by calculating a <script type="math/tex">Mean</script> of the repeated values in one burn-time.</p>
+</blockquote>
+<p><strong><em>unique</em></strong> (integer, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>within how many sigma deviation values are accepted. Data values within the <script type="math/tex">mean \pm n\sigma </script> are kept on the wanted column/DataFrame.</p>
+</blockquote>
+<p><strong>burns</strong> (bool,optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Use burntimes as a third axis with a color bar.</p>
+</blockquote>
+<p><strong>burns_filter</strong> (integer,optional), <strong>default</strong>=None :</p>
+<blockquote>
+<p>A burn-time value in burn-hours at when you want a filter.</p>
+</blockquote>
+<p><strong>LR</strong> (bool,optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Linear regression of the plotted data, One linear regression for one board plotted.</p>
+</blockquote>
+<p><strong><em>saveFormat</em></strong> (string, optional), <strong><em>default</em></strong>='jpeg' :</p>
+<blockquote>
+<p>change the output format of the saved plot : <strong>JPEG, PDF, SVG, PNG</strong></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</p>
+<h3 id="fenics-features-jitter">Fenics features jitter<a class="headerlink" href="#fenics-features-jitter" title="Permanent link"></a></h3>
+<h4 id="fengraphsfenspread">FenGraphs.FenSpread()<a class="headerlink" href="#fengraphsfenspread" title="Permanent link"></a></h4>
+<p><em>func</em> <strong>FenGraphs.FenSpread(<i>FenDataFrame,testTable,columns,selectedBoards,show=True,**kwargs</i>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L377-L441">source</a></p>
+<p>A jitter plot for FENICS features for each selected board, can be customized with a burning indicator with a color bar.</p>
+<blockquote>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>FenDataFrame</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS dataframe with board informations.</p>
+</blockquote>
+<p><strong><em>testTable</em></strong> (pandas.DataFrame) :</p>
+<blockquote>
+<p>FENICS Fast/Slow DataFrame with boards result values.</p>
+</blockquote>
+<p><strong><em>columns</em></strong> (tuples) :</p>
+<blockquote>
+<p>Feature to plot its evolution with burn-time. <strong><em>(MainCol,SubCol)</em></strong> for Fast channel. <strong><em>(Gain,MainCol,SubCol)</em></strong> for Slow channel.</p>
+</blockquote>
+<p><strong><em>selectedBoards</em></strong> (list) :</p>
+<blockquote>
+<p>List of boards IDs to plot as histogram.</p>
+</blockquote>
+<p><strong><em>show</em></strong> (bool, optional) ,<strong><em>default</em></strong>=True :</p>
+<blockquote>
+<p>Show plot in the cell output. By <strong><em>default</em></strong> it is <strong>true</strong>, but for any reasons someone needs to get plots saved without being showed, this can be turned off, a <strong><em>path</em></strong> to save the plot needs to be provided. </p>
+</blockquote>
+</blockquote>
+<h6 id="other-parameters_3">Other parameters<a class="headerlink" href="#other-parameters_3" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>path</em></strong> (string, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>A save directory for the plot if show is set to <strong>False</strong>.</p>
+</blockquote>
+<p><strong><em>sigma</em></strong> (bool, optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Keep one point per burn-hour, by calculating a <script type="math/tex">Mean</script> of the repeated values in one burn-time.</p>
+</blockquote>
+<p><strong>burns</strong> (bool,optional), <strong><em>default</em></strong>=False :</p>
+<blockquote>
+<p>Use burntimes as a third axis with a color bar.</p>
+</blockquote>
+<p><strong><em>saveFormat</em></strong> (string, optional), <strong><em>default</em></strong>='jpeg' :</p>
+<blockquote>
+<p>change the output format of the saved correlation plot : <strong>JPEG, PDF, SVG, PNG</strong></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link"></a></h2>
+<h3 id="fenics-interactive-plots-framework">Fenics interactive plots framework<a class="headerlink" href="#fenics-interactive-plots-framework" title="Permanent link"></a></h3>
+<h4 id="fenbokehgrapher">FenBokehGrapher<a class="headerlink" href="#fenbokehgrapher" title="Permanent link"></a></h4>
+<p><em>Class</em> <strong>FenGraphs.FenBokehGrapher(x,y,*args,**kwargs)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L466-L1289">source</a></p>
+<p>A class for creating interactive Bokeh graphs.</p>
+<blockquote>
+<p><h6> Attributes </h6></p>
+<blockquote>
+<p><strong><em>x</em></strong> (list) :</p>
+<blockquote>
+<p>The x-coordinate data for the graph.</p>
+</blockquote>
+<p><strong><em>y</em></strong> (list) :</p>
+<blockquote>
+<p>The y-coordinate data for the graph. Size needs to correspond to the size of x.</p>
+</blockquote>
+<p><strong><em>*args</em></strong> (list, optional) :</p>
+<blockquote>
+<p>Additional data lists to customize the data tool tips</p>
+</blockquote>
+<p><strong><em>colors</em></strong> (list, optional), <strong><em>default</em></strong>= list of zeros :</p>
+<blockquote>
+<p>A third dimension using colors and (optional) sliders for filtering.</p>
+</blockquote>
+<p><strong><em>labels</em></strong> (list, optional), <strong><em>default</em></strong>= list of "1" :</p>
+<blockquote>
+<p>A label field to identify each x and y in the plot and use (optional) filtering checkboxes.</p>
+</blockquote>
+<p><strong><em>source</em></strong> (bokeh.source object, optional), <strong><em>default</em></strong>= None :</p>
+<blockquote>
+<p>A bokeh.DataSource object that is generated using bokeh.ColumnDataSource.</p>
+</blockquote>
+<p><strong><em>plot</em></strong> (bokeh.glyph object, optional), <strong><em>default</em></strong>= None :</p>
+<blockquote>
+<p>A bokeh.glyph object that can be generated using FenBokehGrapher.create_plot().</p>
+</blockquote>
+<p><strong><em>tooltips</em></strong> (bokeh.tooltips object, optional), <strong><em>default</em></strong>= None : </p>
+<blockquote>
+<p>A bokeh.tooltips object that handles the tooltips and naming of the data showed.</p>
+</blockquote>
+</blockquote>
+<p><h6> Methods </h6></p>
+<blockquote>
+<p><a href="../FenGraphs/#fenbokehgrapher">__init__(<strong><em>x,y,*args,**kwargs</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L467-L481"><code>source</code></a></p>
+<blockquote>
+<p>FenBokehGrapher initialization of the object structure and attributes using the declared attributes. </p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphercreate_plot">create_plot(<strong><em>title,axis_xlabel,axis_ylabel</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L484-L532"><code>source</code></a></p>
+<blockquote>
+<p>Create a bokeh.glyph object.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphercreate_hist">create_hist(<strong><em>title,axis_xlabel,axis_ylabel</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L534-L733"><code>source</code></a></p>
+<blockquote>
+<p>Create a bokeh.histograms for lasso selection interaction.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphercreate_slider">create_slider(<strong><em>**kwargs</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L735-L846"><code>source</code></a></p>
+<blockquote>
+<p>Create a bokeh slider object and the HTML DOM.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphercreate_checkboxes">create_checkboxes(<strong><em>**kwargs</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L848-L946"><code>source</code></a></p>
+<blockquote>
+<p>Create a bokeh checkboxes object with HTML DOM.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphercreate_radiocheckbox">create_radiocheckbox(<strong><em>**kwargs</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L948-L988"><code>source</code></a></p>
+<blockquote>
+<p>Create a bokeh radio group object with HTML DOM.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgrapherselection_callback">selection_callback()</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L990-L1076"><code>source</code></a></p>
+<blockquote>
+<p>A javascript callback event when changes are done to filtering tools.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphercreate_combo_filter">create_combo_filter(<strong><em>**kwargs</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1078-L1211"><code>source</code></a></p>
+<blockquote>
+<p>Create a combo filter with sliders and checkboxes.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgrapherfilters_tool">filters_tool(<strong><em>filters = [('Combo')]</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1213-L1240"><code>source</code></a></p>
+<blockquote>
+<p>Function that merge declared filters in one filter bokeh layout.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgrapherfilters_tool">plotter(<strong><em>plotType='scatter',filters=[('Combo')], title='',axis_xlabel='',axis_ylabel='',linear_fit = False,showGraph=True</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1242-L1276"><code>source</code></a></p>
+<blockquote>
+<p>Function that gather all Bokeh graphical objects and filters layout. and display them.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehgraphersave_as_html">save_as_html(<strong><em>x,y,*args,**kwargs</em></strong>)</a> <a href="[source](https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1278-L1289)"><code>source</code></a></p>
+<blockquote>
+<p>Function that saves the plotter layout in an HTML file.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphercreate_plot">FenBokehGrapher.create_plot<a class="headerlink" href="#fenbokehgraphercreate_plot" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.create_plot(<strong><em>x,y,*args,**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L484-L532">source</a></p>
+<p>Create a bokeh.glyph object.
+This function is called when plottype is set to "Scatter"</p>
+<blockquote>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>title</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom title for the plot</p>
+</blockquote>
+<p><strong><em>axis_xlabel</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom label for the x axis.</p>
+</blockquote>
+<p><strong><em>axis_ylabel</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom label for the Y axis.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphercreate_hist">FenBokehGrapher.create_hist<a class="headerlink" href="#fenbokehgraphercreate_hist" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.create_hist(<strong><em>title='',axis_xlabel='',axis_ylabel=''</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L534-L733">source</a></p>
+<p>Create a double projection histograph object and a JavaScript event listner for Bokeh selection tools and a scatter plot.
+This function is called when plottype is set to "Histogram"</p>
+<blockquote>
+<h6 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>title</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom title for the plot</p>
+</blockquote>
+<p><strong><em>axis_xlabel</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom label for the x axis.</p>
+</blockquote>
+<p><strong><em>axis_ylabel</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom label for the Y axis.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphercreate_slider">FenBokehGrapher.create_slider<a class="headerlink" href="#fenbokehgraphercreate_slider" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.create_slider(<strong><em>**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L735-L846">source</a></p>
+<p>Create a Slider filtering HTML dom object using Bokeh, and creates a custom JavaScript listner that filter the colors property of FenBokehGraph object. different parameters can be customized using the kwargs parameters.</p>
+<p>Called when filters=[('Slider')]</p>
+<blockquote>
+<h6 id="other-parameters_4">Other parameters<a class="headerlink" href="#other-parameters_4" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>min</em></strong> (integer, optional) , <em>default</em> = min(self.colors)  :</p>
+<blockquote>
+<p>default start value at the creation of the slider.</p>
+</blockquote>
+<p><strong><em>max</em></strong> (integer, optional) , <em>default</em> = max(self.colors)  :</p>
+<blockquote>
+<p>default end value at the creation of the slider.</p>
+</blockquote>
+<p><strong><em>valmin</em></strong> (integer, optional) , <em>default</em> = min(self.colors)  :</p>
+<blockquote>
+<p>minimum value of the slider.</p>
+</blockquote>
+<p><strong><em>valmax</em></strong> (integer, optional) , <em>default</em> = max(self.colors)  :</p>
+<blockquote>
+<p>maximum value of the slider.</p>
+</blockquote>
+<p><strong><em>step</em></strong> (float, optional) , <em>default</em> = 20.0  :</p>
+<blockquote>
+<p>At what stepping values, the cursors of the sliders will move.</p>
+</blockquote>
+<p><strong><em>title</em></strong> (string, optional) , <em>default</em> = 'Filter'  :</p>
+<blockquote>
+<p>Title of the slider.</p>
+</blockquote>
+<p><strong><em>orientation</em></strong> (string, optional) , <em>default</em> = 'vertical'  :</p>
+<blockquote>
+<p>Orientation of the slider (vertical / horizontal).</p>
+</blockquote>
+<p><strong><em>height</em></strong> (integer, optional) , <em>default</em> = 300  :</p>
+<blockquote>
+<p>The apparent size in the HTML file in pixels.</p>
+</blockquote>
+<p><strong><em>direction</em></strong> (string, optional) , <em>default</em> = 'rtl'  :</p>
+<blockquote>
+<p>Direction of the min-max/max-min values of the slider.</p>
+<p>'rtl' : right to left</p>
+<p>'ltr' : left to right</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphercreate_checkboxes">FenBokehGrapher.create_checkboxes<a class="headerlink" href="#fenbokehgraphercreate_checkboxes" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.create_checkboxes(<strong><em>**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L848-L946">source</a></p>
+<p>Create an HTML dom object of checkbox groups using Bokeh, and creates a custom JavaScript listner that filter points by their attibuted label in FenBokehGraph object. different parameters can be customized using the kwargs parameters.</p>
+<p>Called when filters=[('Checkbox')]</p>
+<blockquote>
+<h6 id="other-parameters_5">Other parameters<a class="headerlink" href="#other-parameters_5" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>labels_filter</em></strong> (list, optional) , <em>default</em> = pd.unique(FenGrapher.labels)  :</p>
+<blockquote>
+<p>List of labels that is wanted to be filtred (recommended when the number of labels is higher than 8)</p>
+<p>It is also recommended to gather similar labels in one big label in a radiocheckbox. Example : Life-Time tests FENICS boards together, and FENICS NIEL/TID together.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphercreate_radiocheckbox">FenBokehGrapher.create_radiocheckbox<a class="headerlink" href="#fenbokehgraphercreate_radiocheckbox" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.create_radiocheckbox(<strong><em>**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L948-L988">source</a></p>
+<p>Create an HTML dom object of radiocheckboxes using Bokeh, and creates a custom JavaScript listner that filter points by their attibuted label in FenBokehGraph object as groups comapred to the FenBokehGrapher.create_checkboxes(). a default "Select all" "Select none" are available, different parameters can be customized using the kwargs parameters.</p>
+<blockquote>
+<h6 id="other-parameters_6">Other parameters<a class="headerlink" href="#other-parameters_6" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>radio_categories</em></strong> (list, optional) :</p>
+<blockquote>
+<p>List of dictionaries each category to filter in one dictionary. The dictionary structure should be as : 'name' key for the radiocheck box name, and a 'index' key with a list of labels to filter at same time.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgrapherselection_callback">FenBokehGrapher.selection_callback<a class="headerlink" href="#fenbokehgrapherselection_callback" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.selection_callback()</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L990-L1076">source</a></p>
+<p>A callback that recalculate the slope according to the selected points with the selection tools of bokeh. It is called when Linear_regression is True.</p>
+<blockquote>
+<h6 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link"></a></h6>
+<blockquote>
+<p>a JavaScript event listner.</p>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphercreate_combo_filter">FenBokehGrapher.create_combo_filter<a class="headerlink" href="#fenbokehgraphercreate_combo_filter" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.create_combo_filter(<strong><em>**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1078-L1211">source</a></p>
+<p>Create a slider and a checkbox filtering HTML dom with a common filtering JavaScript event listner to handle both filtering simultaneously.</p>
+<p>Called when filters=[('Combo')]</p>
+<blockquote>
+<h6 id="other-parameters_7">Other parameters<a class="headerlink" href="#other-parameters_7" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>min</em></strong> (integer, optional) , <em>default</em> = min(self.colors)  :</p>
+<blockquote>
+<p>default start value at the creation of the slider.</p>
+</blockquote>
+<p><strong><em>max</em></strong> (integer, optional) , <em>default</em> = max(self.colors)  :</p>
+<blockquote>
+<p>default end value at the creation of the slider.</p>
+</blockquote>
+<p><strong><em>valmin</em></strong> (integer, optional) , <em>default</em> = min(self.colors)  :</p>
+<blockquote>
+<p>minimum value of the slider.</p>
+</blockquote>
+<p><strong><em>valmax</em></strong> (integer, optional) , <em>default</em> = max(self.colors)  :</p>
+<blockquote>
+<p>maximum value of the slider.</p>
+</blockquote>
+<p><strong><em>step</em></strong> (float, optional) , <em>default</em> = 20.0  :</p>
+<blockquote>
+<p>At what stepping values, the cursors of the sliders will move.</p>
+</blockquote>
+<p><strong><em>title</em></strong> (string, optional) , <em>default</em> = 'Filter'  :</p>
+<blockquote>
+<p>Title of the slider.</p>
+</blockquote>
+<p><strong><em>orientation</em></strong> (string, optional) , <em>default</em> = 'vertical'  :</p>
+<blockquote>
+<p>Orientation of the slider (vertical / horizontal).</p>
+</blockquote>
+<p><strong><em>height</em></strong> (integer, optional) , <em>default</em> = 300  :</p>
+<blockquote>
+<p>The apparent size in the HTML file in pixels.</p>
+</blockquote>
+<p><strong><em>direction</em></strong> (string, optional) , <em>default</em> = 'rtl'  :</p>
+<blockquote>
+<p>Direction of the min-max/max-min values of the slider.</p>
+<p>'rtl' : right to left</p>
+<p>'ltr' : left to right</p>
+</blockquote>
+<p><strong><em>labels_filter</em></strong> (list, optional) , <em>default</em> = pd.unique(FenGrapher.labels)  :</p>
+<blockquote>
+<p>List of labels that is wanted to be filtred</p>
+</blockquote>
+<p><strong><em>radio_categories</em></strong> (list, optional) :</p>
+<blockquote>
+<p>List of dictionaries each category to filter in one dictionary. The dictionary structure should be as : 'name' key for the radiocheck box name, and a 'index' key with a list of labels to filter at same time.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgrapherfilters_tool">FenBokehGrapher.filters_tool<a class="headerlink" href="#fenbokehgrapherfilters_tool" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.filters_tool(<strong><em>filters = [('Combo')]</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1213-L1240">source</a></p>
+<p>Function that is responsible of the layout hiarchy of the different filter declared.</p>
+<blockquote>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>filters</em></strong> (list, optional) , <em>default</em> = [('Combo')] :</p>
+<blockquote>
+<p>List of tupples  of filters to be added, a second tupple level can be added as a dictionary of kwargs to customize the filter.</p>
+</blockquote>
+</blockquote>
+<h6 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h6>
+<pre><code>    ##Custom combo filter
+    custom_filter = [('Combo',
+    ##Custom checkbox groups
+    dict(labels_filter=FEN1_ids,
+    ##Custon radio categories kwarg argument
+    radio_categories=[dict(name = 'FEN1 LTT',indexes=FEN1_ids),
+                      dict(name = 'FEN1 FAILED',indexes=FENICS_fail),]))]
+</code></pre>
+</blockquote>
+<h4 id="fenbokehgrapherplotter">FenBokehGrapher.plotter<a class="headerlink" href="#fenbokehgrapherplotter" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.plotter(<strong><em>plotType='scatter',filters=[('Combo')],title='',axis_xlabel='',axis_ylabel='',linear_fit = False, showGraph=True</em></strong>)</strong>
+Is the function that plots and show the plot of FenBokehGrapher object.
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1242-L1276">source</a></p>
+<blockquote>
+<h6 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>plotType</em></strong> (string (case sensitive), optional) , <em>default</em> = 'scatter' :</p>
+<blockquote>
+<p>Plot type, with or without projection histograms.</p>
+</blockquote>
+<p><strong><em>filters</em></strong> (list of tuples, optional) , <em>default</em> = [('Combo')] :</p>
+<blockquote>
+<p>List of custom filters and their parametrization.</p>
+</blockquote>
+<p><strong><em>title</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom title for the plot</p>
+</blockquote>
+<p><strong><em>axis_xlabel</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom label for the x axis.</p>
+</blockquote>
+<p><strong><em>axis_ylabel</em></strong> (string, optional) , <em>default</em> = ''  :</p>
+<blockquote>
+<p>Custom label for the Y axis.</p>
+</blockquote>
+<p><strong><em>linear_fir</em></strong> (bool, optional) , <em>default</em> = False  :</p>
+<blockquote>
+<p>Add a linear fit to the resulting plot with a selection event listner using Bokeh selection tools.</p>
+</blockquote>
+<p><strong><em>showGraph</em></strong> (bool, optional) , <em>default</em> = True  :</p>
+<blockquote>
+<p>Option to select whatever you want a resulting graph in the output cell or not.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="fenbokehgraphersave_as_html">FenBokehGrapher.save_as_html<a class="headerlink" href="#fenbokehgraphersave_as_html" title="Permanent link"></a></h4>
+<p><em>ClassMethod</em>  <strong>FenBokehGrapher.save_as_html(<strong><em>x,y,*args,**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L1278-L1289">source</a></p>
+<p>A function that save the plot object and the filtring tools into an HTML file.</p>
+<blockquote>
+<h6 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link"></a></h6>
+<blockquote>
+<p><strong><em>path</em></strong> (string, optional) , <em>default</em> = '' :</p>
+<blockquote>
+<p>Path to the output directory, by default it saves the plot in the current running environnement main directory.</p>
+</blockquote>
+<p><strong><em>filename</em></strong> (string, optional) , <em>default</em> = 'default.html' :</p>
+<blockquote>
+<p>Custom output name of the HTML file.</p>
+</blockquote>
+</blockquote>
+<h6 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link"></a></h6>
+<blockquote>
+<p>An HTML file that is openable on any HTML/JS capable environnement, lighter weight than PNG (around 100ko)</p>
+</blockquote>
+</blockquote>
+<p>&nbsp;
+&nbsp;</p>
+<h3 id="fenics-t-sne-calcualtions">Fenics t-SNE calcualtions<a class="headerlink" href="#fenics-t-sne-calcualtions" title="Permanent link"></a></h3>
+<h4 id="fenbokehtsne">FenBokehTSNE<a class="headerlink" href="#fenbokehtsne" title="Permanent link"></a></h4>
+<p><em>Class</em> <strong>FenGraphs.FenBokehTSNE(<strong><em>data,**kwargs</em></strong>)</strong>
+<a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L444-L462">source</a></p>
+<p>A class that uses Scikit-learn t-SNE package.</p>
+<blockquote>
+<p><h6> Attributes </h6></p>
+<blockquote>
+<p><strong><em>data</em></strong>(numpy array or pandas DataFrame):</p>
+<blockquote>
+<p>The input data for t-SNE.</p>
+</blockquote>
+<p><strong><em>normed</em></strong> (bool, optional):</p>
+<blockquote>
+<p>Specifies whether to normalize the input data. Default is False.</p>
+</blockquote>
+<p><strong><em>perplexity</em></strong> (integer, optional):</p>
+<blockquote>
+<p>The perplexity parameter of t-SNE. It balances the attention given to local and global aspects of the data. Default is 59.</p>
+</blockquote>
+<p><strong><em>random_state</em></strong> (integer, optional):</p>
+<blockquote>
+<p>The random seed for t-SNE. It ensures reproducibility of the results. Default is 80.</p>
+</blockquote>
+<p><strong><em>n_iter</em></strong> (integer, optional):</p>
+<blockquote>
+<p>The maximum number of iterations for t-SNE optimization. Default is 59.</p>
+</blockquote>
+<p><strong><em>learning_rate</em></strong> (integer, optional):</p>
+<blockquote>
+<p>The learning rate for t-SNE optimization. Higher values lead to faster convergence but may result in less accurate embeddings. Default is 59.</p>
+</blockquote>
+</blockquote>
+<p><h6> Methods </h6></p>
+<blockquote>
+<p><a href="../FenGraphs/#fenbokehtsne">__init__(<strong><em>x,y,*args,**kwargs</em></strong>)</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L445-L456"><code>source</code></a></p>
+<blockquote>
+<p>FenBokehGrapher initialization of the object structure and attributes using the declared attributes. Do a norming operation if attribute is declared.</p>
+</blockquote>
+<p><a href="../FenGraphs/#fenbokehtsnetsne">tsne()</a> <a href="https://github.com/wxssym/FenicsATL/blob/9f4a3a63d2388b0ad19844c0cdf52f226016d0d8/FenicsATL/FenGraphs.py#L458-L462"><code>source</code></a></p>
+<blockquote>
+<p>Initiate t-SNE calculation. Uses Scikit-learn t-SNE fit and calculaltions, results with two local attributes (self.tsne_x and self.tsne_y).</p>
+</blockquote>
+</blockquote>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../FenLoad/" class="btn btn-neutral float-left" title="FenLoad"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../FenUtils/" class="btn btn-neutral float-right" title="FenUtils">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../FenLoad/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../FenUtils/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" defer></script>
+      <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.3.min.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
