@@ -1,7 +1,10 @@
 pages:
   stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * FenicsATLdocs/public
   artifacts:
     paths:
-    - FenicsATLdocs/public
+    - public
   only:
   - main
