@@ -1078,7 +1078,7 @@ class FenBokehGrapher:
     def create_combo_filter(self,**kwargs):
         
         slider_params = kwargs.get('slider_params',{})
-
+        print(slider_params)
         self.range_slider = RangeSlider(start=slider_params.get('min',min(self.colors)),
                                         end=slider_params.get('max',max(self.colors)),
                                         value=(slider_params.get('valmin',min(self.colors)),slider_params.get('valmax',max(self.colors))),
